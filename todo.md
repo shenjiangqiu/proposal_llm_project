@@ -1,0 +1,3 @@
+- 使用指数来估计token sparsity
+- 对比使用sparse Q的效果
+- 对比使用全部数据的效果

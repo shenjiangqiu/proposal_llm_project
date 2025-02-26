@@ -1,0 +1,3 @@
+[submodule "extern/transformers"]
+	path = extern/transformers
+	url = https://github.com/shenjiangqiu/transformers.git

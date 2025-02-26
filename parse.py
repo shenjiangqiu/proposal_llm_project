@@ -44,3 +44,42 @@ plt.grid(True)
 plt.show()
 
 # %%
+print(reshaped_query.shape)
+print(key.shape)
+print(loaded_query.shape)
+# %%
+ele_mul = reshaped_query.unsqueeze(1) * key
+print(ele_mul.shape)
+# %%
+# the shape is (12,49,64)
+head1 = ele_mul[0]
+# draw 3d plot for head1
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+# Generate x, y grid
+x_data, y_data = np.meshgrid(np.arange(head1.shape[1]), np.arange(head1.shape[0]))
+x_data = x_data.flatten()
+y_data = y_data.flatten()
+z_data = np.zeros_like(x_data)
+
+# Bar heights
+dz = head1.flatten()
+
+# Bar widths and depths
+dx = dy = 0.5  # Set bar thickness
+
+# Plotting
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+ax.bar3d(x_data, y_data, z_data, dx, dy, dz, shade=True, cmap='viridis')
+
+# Labels
+ax.set_xlabel('X Axis')
+ax.set_ylabel('Y Axis')
+ax.set_zlabel('Value')
+ax.set_title('3D Bar Plot of (49, 64) Array')
+
+# Show plot
+plt.show()
+# %%
